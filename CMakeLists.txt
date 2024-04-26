@@ -5,6 +5,9 @@ set(CMAKE_BUILD_TYPE "Release")
 ADD_COMPILE_OPTIONS(-std=c++14 )
 set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS} -O3 -Wall")
 
+set(CMAKE_PREFIX_PATH /opt/ros/noetic;/usr/local;$ENV{HOME}/planner_ws/devel;$ENV{HOME}/mapping_ws/devel;$ENV{HOME}/tool_ws/devel)
+message(STATUS "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
+
 find_package(Eigen3 REQUIRED)
 find_package(PCL 1.7 REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
@@ -26,25 +29,16 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
-include_directories(${PROJECT_SOURCE_DIR}/../plan_env/ThirdParty/sdf_tools/include)
-include_directories(${PROJECT_SOURCE_DIR}/../plan_env/ThirdParty/arc_utilities/include)
 include_directories( 
     SYSTEM 
     include 
     ${catkin_INCLUDE_DIRS}
     ${Eigen3_INCLUDE_DIRS} 
     ${PCL_INCLUDE_DIRS}
-    /usr/local/include # add include path for nlopt
-        # TODO: not so good!
-    $ENV{HOME}/planner_ws/src/path_searching/include/
-        $ENV{HOME}/planner_ws/src/plan_env/include/
 )
 
-message(STATUS "Project: SERVER")
-message(STATUS "Project Directory: ${PROJECT_SOURCE_DIR}")
-
 add_library(bspline_opt
-#        src/bspline_optimizer_fast.cpp
+        src/bspline_optimizer_fast.cpp
         src/bspline_optimizer_ego.cpp
     src/non_uniform_bspline.cpp
         src/uniform_bspline.cpp
