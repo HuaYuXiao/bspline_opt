@@ -35,13 +35,16 @@ include_directories(
     ${Eigen3_INCLUDE_DIRS} 
     ${PCL_INCLUDE_DIRS}
     /usr/local/include # add include path for nlopt
+        # TODO: not so good!
+    $ENV{HOME}/planner_ws/src/path_searching/include/
+        $ENV{HOME}/planner_ws/src/plan_env/include/
 )
 
 message(STATUS "Project: SERVER")
 message(STATUS "Project Directory: ${PROJECT_SOURCE_DIR}")
 
 add_library(bspline_opt
-        src/bspline_optimizer_fast.cpp
+#        src/bspline_optimizer_fast.cpp
         src/bspline_optimizer_ego.cpp
     src/non_uniform_bspline.cpp
         src/uniform_bspline.cpp

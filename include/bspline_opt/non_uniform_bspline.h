@@ -25,16 +25,13 @@ private:
 public:
   static double limit_vel_, limit_acc_, limit_ratio_;
 
-  NonUniformBspline()
-  {
-  }
+  NonUniformBspline(){}
   NonUniformBspline(Eigen::MatrixXd points, int order, double interval, bool zero = true);
   ~NonUniformBspline();
   void setKnot(Eigen::VectorXd knot);
   Eigen::VectorXd getKnot();
 
-  Eigen::MatrixXd getControlPoint()
-  {
+  Eigen::MatrixXd getControlPoint(){
     return control_points_;
   }
 

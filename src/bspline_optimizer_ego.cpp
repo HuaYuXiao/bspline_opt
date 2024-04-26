@@ -1,10 +1,9 @@
-#include "bspline_opt/bspline_optimizer.h"
+#include "bspline_opt/bspline_optimizer_ego.h"
 #include "bspline_opt/gradient_descent_optimizer.h"
 // using namespace std;
 
 namespace ego_planner
 {
-
   void BsplineOptimizer::setParam(ros::NodeHandle &nh)
   {
     nh.param("optimization/lambda_smooth", lambda1_, -1.0);
