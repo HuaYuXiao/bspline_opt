@@ -133,8 +133,7 @@ namespace ego_planner
     feasibility_tolerance_ = tolerance;
   }
 
-  bool UniformBspline::checkFeasibility(double &ratio, bool show)
-  {
+  bool UniformBspline::checkFeasibility(double &ratio, bool show){
     bool fea = true;
 
     Eigen::MatrixXd P = control_points_;
@@ -143,21 +142,19 @@ namespace ego_planner
     /* check vel feasibility and insert points */
     double max_vel = -1.0;
     double enlarged_vel_lim = limit_vel_ * (1.0 + feasibility_tolerance_) + 1e-4;
-    for (int i = 0; i < P.cols() - 1; ++i)
-    {
+    for (int i = 0; i < P.cols() - 1; ++i){
       Eigen::VectorXd vel = p_ * (P.col(i + 1) - P.col(i)) / (u_(i + p_ + 1) - u_(i + 1));
 
       if (fabs(vel(0)) > enlarged_vel_lim || fabs(vel(1)) > enlarged_vel_lim ||
-          fabs(vel(2)) > enlarged_vel_lim)
-      {
+          fabs(vel(2)) > enlarged_vel_lim){
 
         if (show)
           cout << "[Check]: Infeasible vel " << i << " :" << vel.transpose() << endl;
         fea = false;
 
-        for (int j = 0; j < dimension; ++j)
-        {
+        for (int j = 0; j < dimension; ++j){
           max_vel = max(max_vel, fabs(vel(j)));
+          cout << "max_vel: " << max_vel << ", " << fabs(vel(j)) << endl;
         }
       }
     }
@@ -165,8 +162,7 @@ namespace ego_planner
     /* acc feasibility */
     double max_acc = -1.0;
     double enlarged_acc_lim = limit_acc_ * (1.0 + feasibility_tolerance_) + 1e-4;
-    for (int i = 0; i < P.cols() - 2; ++i)
-    {
+    for (int i = 0; i < P.cols() - 2; ++i){
 
       Eigen::VectorXd acc = p_ * (p_ - 1) *
                             ((P.col(i + 2) - P.col(i + 1)) / (u_(i + p_ + 2) - u_(i + 2)) -
@@ -174,16 +170,15 @@ namespace ego_planner
                             (u_(i + p_ + 1) - u_(i + 2));
 
       if (fabs(acc(0)) > enlarged_acc_lim || fabs(acc(1)) > enlarged_acc_lim ||
-          fabs(acc(2)) > enlarged_acc_lim)
-      {
+          fabs(acc(2)) > enlarged_acc_lim){
 
         if (show)
           cout << "[Check]: Infeasible acc " << i << " :" << acc.transpose() << endl;
         fea = false;
 
-        for (int j = 0; j < dimension; ++j)
-        {
+        for (int j = 0; j < dimension; ++j){
           max_acc = max(max_acc, fabs(acc(j)));
+          cout << "max_acc: " << max_acc << ", " << fabs(acc(j)) << endl;
         }
       }
     }
