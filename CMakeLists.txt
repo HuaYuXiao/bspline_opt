@@ -16,9 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   visualization_msgs
   plan_env
-        sdf_tools
         cv_bridge
-        traj_utils
         path_searching
 )
 
@@ -44,7 +42,7 @@ add_library(bspline_opt
         src/uniform_bspline.cpp
         src/gradient_descent_optimizer.cpp
 )
-target_link_libraries( bspline_opt
+target_link_libraries(bspline_opt
     ${catkin_LIBRARIES}
     /usr/local/lib/libnlopt.so
     )  

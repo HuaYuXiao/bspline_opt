@@ -10,5 +10,11 @@ The bspline_opt package, modified for both [Fast-Planner](https://github.com/Hua
 **NOTE**: make and install `path_searching` and `plan_env` before using this package!
 
 ```bash
-catkin_make install --source src/bspline_opt/ --build build/bspline_opt/
+catkin_make install --source src/bspline_opt --build build/bspline_opt
 ```
+
+## Release Note
+
+### v1.1.0
+
+Add support for official EGO-Planner
