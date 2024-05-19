@@ -7,8 +7,6 @@ The bspline_opt package, modified for both [Fast-Planner](https://github.com/Hua
 ![Static Badge](https://img.shields.io/badge/C%2B%2B-14-00599C?logo=cplusplus)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-20.04.6-E95420?logo=ubuntu)
 
-**NOTE**: make and install `path_searching` and `plan_env` before using this package!
-
 
 ## Release Note
 
@@ -18,6 +16,11 @@ The bspline_opt package, modified for both [Fast-Planner](https://github.com/Hua
 
 
 ## Compilation
+
+prerequisite:
+
+- `path_searching`
+- `plan_env`
 
 ```bash
 catkin_make install --source src/bspline_opt --build build/bspline_opt
