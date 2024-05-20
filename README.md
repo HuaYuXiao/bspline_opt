@@ -1,6 +1,6 @@
 # bspline_opt
 
-The bspline_opt package, modified for both [Fast-Planner](https://github.com/HuaYuXiao/Fast-Planner.git) and [EGO-Planner](https://github.com/HuaYuXiao/EGO-Planner.git).
+The bspline_opt package, submodule of `Fast-Planner` & `EGO-Planner`
 
 ![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FHuaYuXiao%2Fbspline_opt.json%3Fcolor%3Dpink)
 ![Static Badge](https://img.shields.io/badge/ROS-noetic-22314E?logo=ros)
@@ -15,7 +15,7 @@ The bspline_opt package, modified for both [Fast-Planner](https://github.com/Hua
 - v1.1.0: support `EGO-Planner`
 
 
-## Compilation
+## Installation
 
 prerequisite:
 
