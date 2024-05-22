@@ -4,7 +4,6 @@ project(bspline_opt)
 set(CMAKE_BUILD_TYPE "Release")
 ADD_COMPILE_OPTIONS(-std=c++14)
 set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS} -O3 -Wall")
-
 set(CMAKE_PREFIX_PATH /opt/ros/noetic;/usr/local;$ENV{HOME}/planner_ws/devel;$ENV{HOME}/mapping_ws/devel;$ENV{HOME}/tool_ws/devel)
 message(STATUS "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 
@@ -41,6 +40,7 @@ add_library(bspline_opt
         src/bspline_optimizer_ego.cpp
         src/uniform_bspline.cpp
         src/gradient_descent_optimizer.cpp
+        src/bspline_optimizer_pe.cpp
 )
 target_link_libraries(bspline_opt
     ${catkin_LIBRARIES}

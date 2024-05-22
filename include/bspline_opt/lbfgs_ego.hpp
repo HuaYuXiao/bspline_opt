@@ -7,8 +7,7 @@
 #include <cstring>
 #include <cmath>
 
-namespace lbfgs
-{
+namespace lbfgs{
     // ----------------------- Data Type Part -----------------------
 
     /**
@@ -17,8 +16,7 @@ namespace lbfgs
      * Roughly speaking, a negative value indicates an error.
      */
 
-    enum
-    {
+    enum{
         /** L-BFGS reaches convergence. */
         LBFGS_CONVERGENCE = 0,
         /** L-BFGS satisfies stopping criteria. */

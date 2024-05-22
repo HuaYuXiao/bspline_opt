@@ -6,18 +6,15 @@
 #include <bspline_opt/uniform_bspline.h>
 #include <plan_env/grid_map.h>
 #include <ros/ros.h>
-#include "bspline_opt/lbfgs.hpp"
+#include "bspline_opt/lbfgs_ego.hpp"
 
 // Gradient and elasitc band optimization
 
 // Input: a signed distance field and a sequence of points
 // Output: the optimized sequence of points
 // The format of points: N x 3 matrix, each row is a point
-namespace ego_planner
-{
-
-    class ControlPoints
-    {
+namespace ego_planner{
+    class ControlPoints{
     public:
         double clearance;
         int size;
@@ -44,9 +41,7 @@ namespace ego_planner
         }
     };
 
-    class BsplineOptimizer
-    {
-
+    class BsplineOptimizer{
     public:
         BsplineOptimizer() {}
         ~BsplineOptimizer() {}
@@ -86,8 +81,7 @@ namespace ego_planner
     private:
         GridMap::Ptr grid_map_;
 
-        enum FORCE_STOP_OPTIMIZE_TYPE
-        {
+        enum FORCE_STOP_OPTIMIZE_TYPE{
             DONT_STOP,
             STOP_FOR_REBOUND,
             STOP_FOR_ERROR
@@ -156,6 +150,5 @@ namespace ego_planner
 
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW
     };
-
 } // namespace ego_planner
 #endif
