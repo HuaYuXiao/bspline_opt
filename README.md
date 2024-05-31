@@ -10,17 +10,17 @@ The bspline_opt package, submodule of `Fast-Planner` & `EGO-Planner` & `PE-Plann
 
 ## Introduction
 
-### `Fast-Planner`
+### Fast-Planner
 
 - [non_uniform_bspline.cpp](src%2Fnon_uniform_bspline.cpp)
 - [bspline_optimizer_fast.cpp](src%2Fbspline_optimizer_fast.cpp)
 
-### `EGO-Planner`
+### EGO-Planner
 
 - [uniform_bspline.cpp](src%2Funiform_bspline.cpp)
 - [bspline_optimizer_ego.cpp](src%2Fbspline_optimizer_ego.cpp)
 
-### `PE-Planner`
+### PE-Planner
 
 - [bspline_optimizer_pe.cpp](src%2Fbspline_optimizer_pe.cpp)
 
@@ -41,5 +41,5 @@ prerequisite:
 - `plan_env`
 
 ```bash
-catkin_make install --source src/bspline_opt --build build/bspline_opt
+catkin_make install --source Planning/bspline_opt --build Planning/bspline_opt/build
 ```
