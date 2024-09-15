@@ -27,6 +27,6 @@ The bspline_opt package, submodule of `Fast-Planner` & `EGO-Planner` & `PE-Plann
 ## Installation
 
 ```bash
-cd ~/EasonDrone
-catkin_make install --source Planning/bspline_opt --build Planning/bspline_opt/build
+git clone https://gitee.com/hyx020222/bspline_opt.git  ~/easondrone_ws/plan/bspline_opt
+cd ~/easondrone_ws && catkin_make --source plan/bspline_opt --build plan/bspline_opt/build
 ```
